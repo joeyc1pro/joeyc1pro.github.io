@@ -438,7 +438,7 @@
     <div class="hero-content">
       <p class="hero-eyebrow">// developer · builder · html enthusiast</p>
       <h1 class="hero-name">joey<span class="acc">c</span><br><span class="ghost">1pro</span></h1>
-      <p class="hero-sub">I like to code HTML and mainly use GitHub for rehosting websites. Based in San Diego, he/him.</p>
+      <p class="hero-sub">I'm 13 and I love coding HTML. I mostly use GitHub to host and share stuff I make or find useful. San Diego, he/him.</p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects ↓</a>
         <a href="https://github.com/joeyc1pro" target="_blank" class="btn btn-outline">GitHub ↗</a>
@@ -477,30 +477,30 @@
           <span class="clip-line"><span class="clip-inner">I explore.</span></span>
         </h2>
         <p class="about-body reveal" style="transition-delay:0.15s">
-          I build things on the web — pages, tools, and sites hosted on GitHub Pages.
-          From Flipper Zero apps to Roblox scripts, I like sharing what I make so
-          others don't have to start from scratch.
+          I'm 13 and I build stuff for the web — pages, tools, and projects I host on GitHub Pages.
+          From Flipper Zero apps to Roblox scripts, I put everything online for free so other people
+          don't have to struggle finding it like I did.
         </p>
         <p class="about-body reveal" style="transition-delay:0.25s; margin-top:16px">
-          164 contributions in the last year and counting.
+          <span id="contrib-text">Loading stats...</span>
         </p>
       </div>
       <div class="stats-grid reveal" style="transition-delay:0.1s">
         <div class="stat-box">
-          <div class="stat-n"><span class="count-up" data-target="23">0</span></div>
+          <div class="stat-n"><span class="count-up" id="stat-repos" data-target="0">—</span></div>
           <div class="stat-l">Repositories</div>
         </div>
         <div class="stat-box">
-          <div class="stat-n"><span class="count-up" data-target="164">0</span></div>
-          <div class="stat-l">Contributions / yr</div>
+          <div class="stat-n"><span class="count-up" id="stat-stars" data-target="0">—</span></div>
+          <div class="stat-l">Total Stars</div>
         </div>
         <div class="stat-box">
-          <div class="stat-n"><span class="count-up" data-target="4">0</span></div>
-          <div class="stat-l">Live sites</div>
+          <div class="stat-n"><span class="count-up" id="stat-followers" data-target="0">—</span></div>
+          <div class="stat-l">Followers</div>
         </div>
         <div class="stat-box">
-          <div class="stat-n"><span class="count-up" data-target="1">0</span></div>
-          <div class="stat-l">Follower 🙂</div>
+          <div class="stat-n"><span class="count-up" id="stat-live" data-target="4">—</span></div>
+          <div class="stat-l">Live Sites</div>
         </div>
       </div>
     </div>
@@ -632,7 +632,7 @@
     <div class="cta-inner">
       <p class="eyebrow reveal">// get in touch</p>
       <h2 class="cta-heading reveal" style="transition-delay:0.1s">Let's<br><span class="ghost">connect.</span></h2>
-      <p class="cta-sub reveal" style="transition-delay:0.2s">Check out my work on GitHub, visit my live projects, or just browse around.</p>
+      <p class="cta-sub reveal" style="transition-delay:0.2s">Check out my stuff on GitHub or visit one of my live sites. I'm always working on something new!</p>
       <div class="cta-btns reveal" style="transition-delay:0.3s">
         <a href="https://github.com/joeyc1pro" target="_blank" class="btn btn-primary">GitHub Profile ↗</a>
         <a href="https://joeyc1pro.github.io" target="_blank" class="btn btn-outline">Live Site ↗</a>
@@ -683,9 +683,11 @@
     },{threshold:0.1});
     document.querySelectorAll('.reveal,.about-heading,.feat-card').forEach(el=>io.observe(el));
 
-    /* COUNT UP */
+    /* COUNT UP — reads data-target set by stats.js */
     function countUp(el){
-      const target=+el.dataset.target, dur=1300, t0=performance.now();
+      const target=+el.dataset.target;
+      if(!target){el.textContent='0';return;}
+      const dur=1300, t0=performance.now();
       (function tick(now){
         const p=Math.min((now-t0)/dur,1);
         el.textContent=Math.round((1-Math.pow(1-p,3))*target);
@@ -727,5 +729,6 @@
       })();
     }
   </script>
+    <script src="stats.js"></script>
 </body>
 </html>
