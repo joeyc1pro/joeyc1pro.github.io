@@ -46,7 +46,7 @@ async function loadGitHubStats() {
     const contribEl = document.getElementById('contrib-text');
     if (contribEl) {
       contribEl.textContent =
-        `${repoCount} public repos and ${totalStars} total stars across all my projects — and still going!`;
+        `${repoCount} public repos and ${totalStars} total stars across all my projects, and still going!`;
     }
 
   } catch (err) {
