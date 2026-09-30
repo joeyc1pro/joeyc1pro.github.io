@@ -1,150 +1,199 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title></title>
-    <link rel="stylesheet" href="style.css">
+```
+<title></title>
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-    <div class="background"></div>
+```
+<!-- Video Background -->
+<video
+    class="video-background"
+    autoplay
+    muted
+    loop
+    playsinline
+>
+    <source src="bg.webm" type="video/webm">
+</video>
 
-    <main class="profile-card">
+<!-- Dark overlay -->
+<div class="video-overlay"></div>
 
-        <div class="avatar">
-            <span>J</span>
-        </div>
+<!-- Main Profile -->
+<main class="profile">
 
-        <h1>Joey</h1>
-
-        <p class="username">@joeyc1pro</p>
-
-        <p class="bio">
-            developer • gamer • creator
-        </p>
-
-        <div class="socials">
-
-            <a href="#" class="social">
-                <span class="social-icon">◉</span>
-                <span>Discord</span>
-                <span class="arrow">↗</span>
-            </a>
-
-            <a href="https://github.com/joeyc1pro" class="social" target="_blank">
-                <span class="social-icon">⌘</span>
-                <span>GitHub</span>
-                <span class="arrow">↗</span>
-            </a>
-
-        </div>
-
-        <div class="section-title">
-            <span>PROJECTS</span>
-        </div>
-
-        <a
-            href="https://joeyc1pro.github.io/amplify-home-xyz"
-            target="_blank"
-            class="project"
-        >
-            <div class="project-icon">
-                🎮
-            </div>
-
-            <div class="project-info">
-                <h2>Amplify</h2>
-                <p>Unblocked games website</p>
-            </div>
-
-            <div class="project-arrow">↗</div>
-        </a>
-
-        <div class="status">
-            <span class="status-dot"></span>
-            <span>online</span>
-        </div>
-
-    </main>
-
-    <div class="footer">
-        joeyc1pro
+    <!-- Avatar -->
+    <div class="avatar">
+        <span>J</span>
     </div>
 
+    <!-- Name -->
+    <h1>Joey</h1>
 
-    <script>
-        /*
-            Browser tab title animation
-            Types → pauses → backspaces → next title
-        */
+    <div class="username">
+        @joeyc1pro
+    </div>
 
-        const titles = [
-            "Joey",
-            "JoeyC1Pro",
-            "Joey's Website",
-            "joeyc1pro.github.io"
-        ];
+    <p class="bio">
+        developer • gamer • creator
+    </p>
 
-        let titleIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
+    <!-- Social Links -->
+    <div class="socials">
 
-        const typeSpeed = 100;
-        const deleteSpeed = 60;
-        const pauseAfterTyping = 1500;
-        const pauseAfterDeleting = 400;
+        <a href="#" class="social">
+            <span class="social-icon">◉</span>
+            <span>Discord</span>
+        </a>
 
-        function typeTitle() {
+        <a
+            href="https://github.com/joeyc1pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social"
+        >
+            <span class="social-icon">⌘</span>
+            <span>GitHub</span>
+        </a>
 
-            const currentTitle = titles[titleIndex];
+    </div>
 
-            if (!deleting) {
+    <!-- Projects -->
+    <div class="projects-title">
+        projects
+    </div>
 
-                document.title =
-                    currentTitle.substring(0, charIndex + 1);
+    <a
+        href="https://joeyc1pro.github.io/amplify-home-xyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project"
+    >
 
-                charIndex++;
+        <div class="project-icon">
+            🎮
+        </div>
 
-                if (charIndex >= currentTitle.length) {
+        <div class="project-info">
 
-                    setTimeout(() => {
-                        deleting = true;
-                        typeTitle();
-                    }, pauseAfterTyping);
+            <div class="project-name">
+                Amplify
+            </div>
 
-                    return;
-                }
+            <div class="project-description">
+                Unblocked games website
+            </div>
 
-                setTimeout(typeTitle, typeSpeed);
+        </div>
 
-            } else {
+        <div class="project-arrow">
+            ↗
+        </div>
 
-                document.title =
-                    currentTitle.substring(0, charIndex - 1);
+    </a>
 
-                charIndex--;
+    <!-- Online Status -->
+    <div class="online">
+        <span></span>
+        online
+    </div>
 
-                if (charIndex <= 0) {
+</main>
 
-                    deleting = false;
 
-                    titleIndex =
-                        (titleIndex + 1) % titles.length;
+<script>
 
-                    setTimeout(typeTitle, pauseAfterDeleting);
+    /* =================================
+       BROWSER TAB TITLE ANIMATION
+    ================================= */
 
-                    return;
-                }
+    const titles = [
+        "Joey",
+        "JoeyC1Pro",
+        "Joey's Website",
+        "joeyc1pro"
+    ];
 
-                setTimeout(typeTitle, deleteSpeed);
+    let titleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const typeSpeed = 100;
+    const deleteSpeed = 55;
+
+    const pauseAfterTyping = 1700;
+    const pauseAfterDeleting = 500;
+
+
+    function animateTitle() {
+
+        const current = titles[titleIndex];
+
+        if (!deleting) {
+
+            document.title =
+                current.substring(0, charIndex + 1);
+
+            charIndex++;
+
+            if (charIndex >= current.length) {
+
+                setTimeout(() => {
+                    deleting = true;
+                    animateTitle();
+                }, pauseAfterTyping);
+
+                return;
             }
-        }
 
-        typeTitle();
-    </script>
+            setTimeout(
+                animateTitle,
+                typeSpeed
+            );
+
+        } else {
+
+            document.title =
+                current.substring(0, charIndex - 1);
+
+            charIndex--;
+
+            if (charIndex <= 0) {
+
+                deleting = false;
+
+                titleIndex =
+                    (titleIndex + 1) % titles.length;
+
+                setTimeout(
+                    animateTitle,
+                    pauseAfterDeleting
+                );
+
+                return;
+            }
+
+            setTimeout(
+                animateTitle,
+                deleteSpeed
+            );
+        }
+    }
+
+    animateTitle();
+
+</script>
+```
 
 </body>
 </html>
