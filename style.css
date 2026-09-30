@@ -1,279 +1,257 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html,
 body {
-width: 100%;
-min-height: 100%;
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-min-height: 100vh;
-background: #000;
-color: #fff;
-font-family: Arial, sans-serif;
-display: flex;
-justify-content: center;
-align-items: center;
-overflow-x: hidden;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
 }
 
-/* Background */
-
 .video-background {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-z-index: -2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 
 .video-overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
-
-/* Profile */
 
 .profile {
-width: 430px;
-max-width: calc(100% - 30px);
-text-align: center;
-padding: 30px 0;
+    width: 430px;
+    max-width: calc(100% - 30px);
+    padding: 30px 0;
+    text-align: center;
 }
 
-/* Avatar */
-
 .avatar {
-width: 88px;
-height: 88px;
-margin: 0 auto 15px;
-border-radius: 50%;
-background: #7255d9;
-border: 2px solid rgba(255, 255, 255, 0.2);
-display: flex;
-justify-content: center;
-align-items: center;
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #7255d9;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .avatar span {
-font-size: 32px;
-font-weight: bold;
+    font-size: 32px;
+    font-weight: bold;
 }
 
-/* Text */
-
 h1 {
-font-size: 30px;
-font-weight: bold;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .username {
-margin-top: 5px;
-color: rgba(255, 255, 255, 0.5);
-font-size: 13px;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
 }
 
 .bio {
-margin-top: 14px;
-margin-bottom: 22px;
-color: rgba(255, 255, 255, 0.7);
-font-size: 13px;
+    margin-top: 14px;
+    margin-bottom: 22px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
 }
 
-/* Social icons */
-
 .socials {
-display: flex;
-justify-content: center;
-gap: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .social {
-width: 58px;
-height: 58px;
-display: flex;
-justify-content: center;
-align-items: center;
-border-radius: 12px;
-background: rgba(0, 0, 0, 0.4);
-border: 1px solid rgba(255, 255, 255, 0.15);
-text-decoration: none;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
 }
 
 .social:hover {
-background: rgba(30, 30, 30, 0.7);
+    background: rgba(30, 30, 30, 0.7);
 }
 
 .social-logo {
-width: 28px;
-height: 28px;
-object-fit: contain;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
 
-/* Projects */
-
 .projects-title {
-margin-top: 28px;
-margin-bottom: 10px;
-text-align: left;
-color: rgba(255, 255, 255, 0.45);
-font-size: 10px;
-text-transform: uppercase;
-letter-spacing: 1px;
+    width: 100%;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .project {
-width: 100%;
-min-height: 68px;
-padding: 12px;
-display: flex;
-align-items: center;
-text-align: left;
-color: #fff;
-text-decoration: none;
-background: rgba(0, 0, 0, 0.4);
-border: 1px solid rgba(255, 255, 255, 0.15);
-border-radius: 12px;
+    width: 100%;
+    min-height: 68px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
 }
 
 .project:hover {
-background: rgba(30, 30, 30, 0.7);
+    background: rgba(30, 30, 30, 0.7);
 }
 
 .project-icon {
-width: 43px;
-height: 43px;
-margin-right: 12px;
-border-radius: 10px;
-background: rgba(255, 255, 255, 0.08);
-display: flex;
-justify-content: center;
-align-items: center;
+    width: 43px;
+    height: 43px;
+    margin-right: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .project-name {
-font-size: 13px;
-font-weight: bold;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .project-description {
-margin-top: 4px;
-color: rgba(255, 255, 255, 0.5);
-font-size: 11px;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
 }
 
 .project-arrow {
-margin-left: auto;
-color: rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.5);
 }
 
-/* Music */
-
 .music-button {
-margin-top: 15px;
-padding: 8px 13px;
-border: 1px solid rgba(255, 255, 255, 0.15);
-border-radius: 9px;
-background: rgba(0, 0, 0, 0.4);
-color: rgba(255, 255, 255, 0.7);
-font-family: Arial, sans-serif;
-font-size: 11px;
-cursor: pointer;
+    margin-top: 15px;
+    padding: 8px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9px;
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 .music-button:hover {
-background: rgba(30, 30, 30, 0.7);
+    background: rgba(30, 30, 30, 0.7);
 }
 
-/* Online */
-
 .online {
-margin-top: 17px;
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 7px;
-color: rgba(255, 255, 255, 0.45);
-font-size: 10px;
+    margin-top: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 10px;
 }
 
 .online span {
-width: 6px;
-height: 6px;
-border-radius: 50%;
-background: #6bea91;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6bea91;
 }
 
-/* Time and weather */
-
 .local-info {
-margin-top: 15px;
-display: flex;
-justify-content: center;
-gap: 12px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
 }
 
 .info-box {
-min-width: 105px;
-padding: 8px 12px;
-border-radius: 9px;
-background: rgba(0, 0, 0, 0.3);
-border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 105px;
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .info-value {
-font-size: 13px;
-color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .info-sub {
-margin-top: 3px;
-font-size: 9px;
-color: rgba(255, 255, 255, 0.4);
+    margin-top: 3px;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.4);
 }
-
-/* Mobile */
 
 @media (max-width: 500px) {
-body {
-align-items: flex-start;
-}
+    body {
+        align-items: flex-start;
+    }
 
-```
-.profile {
-    width: calc(100% - 30px);
-    padding-top: 40px;
-}
+    .profile {
+        width: calc(100% - 30px);
+        padding-top: 40px;
+    }
 
-.avatar {
-    width: 80px;
-    height: 80px;
-}
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
 
-h1 {
-    font-size: 27px;
-}
+    h1 {
+        font-size: 27px;
+    }
 
-.social {
-    width: 54px;
-    height: 54px;
-}
+    .social {
+        width: 54px;
+        height: 54px;
+    }
 
-.social-logo {
-    width: 26px;
-    height: 26px;
-}
-```
-
+    .social-logo {
+        width: 26px;
+        height: 26px;
+    }
 }
