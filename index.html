@@ -1,199 +1,611 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title></title>
-<link rel="stylesheet" href="style.css">
-```
-
+    <title></title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-```
-<!-- Video Background -->
-<video
-    class="video-background"
-    autoplay
-    muted
-    loop
-    playsinline
->
-    <source src="bg.webm" type="video/webm">
-</video>
+    <!-- Video Background -->
+    <video
+        class="video-background"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="bg.webm" type="video/webm">
+    </video>
 
-<!-- Dark overlay -->
-<div class="video-overlay"></div>
+    <!-- Dark overlay -->
+    <div class="video-overlay"></div>
 
-<!-- Main Profile -->
-<main class="profile">
 
-    <!-- Avatar -->
-    <div class="avatar">
-        <span>J</span>
-    </div>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Name -->
-    <h1>Joey</h1>
 
-    <div class="username">
-        @joeyc1pro
-    </div>
+    <!-- Main Profile -->
+    <main class="profile">
 
-    <p class="bio">
-        developer • gamer • creator
-    </p>
+        <!-- Avatar -->
+        <div class="avatar">
+            <span>J</span>
+        </div>
 
-    <!-- Social Links -->
-    <div class="socials">
+        <h1>Joey</h1>
 
-        <a href="#" class="social">
-            <span class="social-icon">◉</span>
-            <span>Discord</span>
-        </a>
+        <div class="username">
+            @joeyc1pro
+        </div>
+
+        <p class="bio">
+            developer • gamer • creator
+        </p>
+
+
+        <!-- Social Links -->
+        <div class="socials">
+
+            <a href="#" class="social">
+                <span class="social-icon">◉</span>
+                <span>Discord</span>
+            </a>
+
+            <a
+                href="https://github.com/joeyc1pro"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social"
+            >
+                <span class="social-icon">⌘</span>
+                <span>GitHub</span>
+            </a>
+
+        </div>
+
+
+        <!-- Local Info -->
+        <div class="local-info">
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    LOCAL TIME
+                </div>
+
+                <div
+                    class="info-value"
+                    id="localTime"
+                >
+                    --:--:--
+                </div>
+
+                <div
+                    class="info-sub"
+                    id="location"
+                >
+                    Detecting location...
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    WEATHER
+                </div>
+
+                <div
+                    class="info-value"
+                    id="weather"
+                >
+                    --°
+                </div>
+
+                <div
+                    class="info-sub"
+                    id="weatherDescription"
+                >
+                    Loading...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Projects -->
+        <div class="projects-title">
+            projects
+        </div>
+
 
         <a
-            href="https://github.com/joeyc1pro"
+            href="https://joeyc1pro.github.io/amplify-home-xyz"
             target="_blank"
             rel="noopener noreferrer"
-            class="social"
+            class="project"
         >
-            <span class="social-icon">⌘</span>
-            <span>GitHub</span>
+
+            <div class="project-icon">
+                🎮
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    Amplify
+                </div>
+
+                <div class="project-description">
+                    Unblocked games website
+                </div>
+
+            </div>
+
+            <div class="project-arrow">
+                ↗
+            </div>
+
         </a>
 
-    </div>
 
-    <!-- Projects -->
-    <div class="projects-title">
-        projects
-    </div>
+        <!-- Music Button -->
+        <button
+            class="music-button"
+            id="musicButton"
+            type="button"
+        >
+            <span id="musicIcon">♫</span>
+            <span id="musicText">Play music</span>
+        </button>
 
-    <a
-        href="https://joeyc1pro.github.io/amplify-home-xyz"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="project"
-    >
 
-        <div class="project-icon">
-            🎮
+        <!-- Online -->
+        <div class="online">
+            <span></span>
+            online
         </div>
 
-        <div class="project-info">
-
-            <div class="project-name">
-                Amplify
-            </div>
-
-            <div class="project-description">
-                Unblocked games website
-            </div>
-
-        </div>
-
-        <div class="project-arrow">
-            ↗
-        </div>
-
-    </a>
-
-    <!-- Online Status -->
-    <div class="online">
-        <span></span>
-        online
-    </div>
-
-</main>
+    </main>
 
 
-<script>
+    <script>
 
-    /* =================================
-       BROWSER TAB TITLE ANIMATION
-    ================================= */
+        /* =========================================
+           TAB TITLE TYPEWRITER
+        ========================================= */
 
-    const titles = [
-        "Joey",
-        "JoeyC1Pro",
-        "Joey's Website",
-        "joeyc1pro"
-    ];
+        const titles = [
+            "Joey",
+            "JoeyC1Pro",
+            "Joey's Website",
+            "joeyc1pro"
+        ];
 
-    let titleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+        let titleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
 
-    const typeSpeed = 100;
-    const deleteSpeed = 55;
+        const typeSpeed = 100;
+        const deleteSpeed = 55;
 
-    const pauseAfterTyping = 1700;
-    const pauseAfterDeleting = 500;
+        const pauseAfterTyping = 1700;
+        const pauseAfterDeleting = 500;
 
 
-    function animateTitle() {
+        function animateTitle() {
 
-        const current = titles[titleIndex];
+            const current = titles[titleIndex];
 
-        if (!deleting) {
+            if (!deleting) {
 
-            document.title =
-                current.substring(0, charIndex + 1);
+                document.title =
+                    current.substring(0, charIndex + 1);
 
-            charIndex++;
+                charIndex++;
 
-            if (charIndex >= current.length) {
+                if (charIndex >= current.length) {
 
-                setTimeout(() => {
-                    deleting = true;
-                    animateTitle();
-                }, pauseAfterTyping);
+                    setTimeout(() => {
 
-                return;
-            }
+                        deleting = true;
+                        animateTitle();
 
-            setTimeout(
-                animateTitle,
-                typeSpeed
-            );
+                    }, pauseAfterTyping);
 
-        } else {
-
-            document.title =
-                current.substring(0, charIndex - 1);
-
-            charIndex--;
-
-            if (charIndex <= 0) {
-
-                deleting = false;
-
-                titleIndex =
-                    (titleIndex + 1) % titles.length;
+                    return;
+                }
 
                 setTimeout(
                     animateTitle,
-                    pauseAfterDeleting
+                    typeSpeed
                 );
 
-                return;
+            } else {
+
+                document.title =
+                    current.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex <= 0) {
+
+                    deleting = false;
+
+                    titleIndex =
+                        (titleIndex + 1) % titles.length;
+
+                    setTimeout(
+                        animateTitle,
+                        pauseAfterDeleting
+                    );
+
+                    return;
+                }
+
+                setTimeout(
+                    animateTitle,
+                    deleteSpeed
+                );
+            }
+        }
+
+        animateTitle();
+
+
+        /* =========================================
+           BACKGROUND MUSIC
+        ========================================= */
+
+        const music =
+            document.getElementById("bgMusic");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+        const musicText =
+            document.getElementById("musicText");
+
+        const musicIcon =
+            document.getElementById("musicIcon");
+
+        let musicPlaying = false;
+
+
+        music.volume = 0.35;
+
+
+        musicButton.addEventListener("click", () => {
+
+            if (musicPlaying) {
+
+                music.pause();
+
+                musicPlaying = false;
+
+                musicIcon.textContent = "♫";
+                musicText.textContent = "Play music";
+
+                musicButton.classList.remove("playing");
+
+            } else {
+
+                music.play()
+                    .then(() => {
+
+                        musicPlaying = true;
+
+                        musicIcon.textContent = "Ⅱ";
+                        musicText.textContent = "Pause music";
+
+                        musicButton.classList.add("playing");
+
+                    })
+                    .catch(() => {
+
+                        musicText.textContent =
+                            "Music unavailable";
+
+                    });
             }
 
-            setTimeout(
-                animateTitle,
-                deleteSpeed
+        });
+
+
+        /* =========================================
+           IP LOCATION + WEATHER
+        ========================================= */
+
+        const timeElement =
+            document.getElementById("localTime");
+
+        const locationElement =
+            document.getElementById("location");
+
+        const weatherElement =
+            document.getElementById("weather");
+
+        const weatherDescriptionElement =
+            document.getElementById(
+                "weatherDescription"
             );
+
+
+        let visitorTimezone =
+            Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+
+        /*
+            Get approximate location from public IP.
+            ipapi.co returns city, latitude,
+            longitude and timezone.
+        */
+
+        async function loadLocationAndWeather() {
+
+            try {
+
+                const locationResponse =
+                    await fetch(
+                        "https://ipapi.co/json/"
+                    );
+
+                if (!locationResponse.ok) {
+                    throw new Error(
+                        "Location request failed"
+                    );
+                }
+
+                const location =
+                    await locationResponse.json();
+
+
+                /*
+                    Location
+                */
+
+                if (
+                    location.city &&
+                    location.region
+                ) {
+
+                    locationElement.textContent =
+                        `${location.city}, ${location.region}`;
+
+                } else if (location.city) {
+
+                    locationElement.textContent =
+                        location.city;
+
+                } else {
+
+                    locationElement.textContent =
+                        "Local time";
+
+                }
+
+
+                /*
+                    Timezone
+                */
+
+                if (location.timezone) {
+
+                    visitorTimezone =
+                        location.timezone;
+
+                }
+
+
+                /*
+                    Weather coordinates
+                */
+
+                if (
+                    typeof location.latitude !==
+                        "number" ||
+                    typeof location.longitude !==
+                        "number"
+                ) {
+
+                    throw new Error(
+                        "No coordinates available"
+                    );
+
+                }
+
+
+                /*
+                    Open-Meteo current weather
+                */
+
+                const weatherURL =
+                    "https://api.open-meteo.com/v1/forecast" +
+                    `?latitude=${encodeURIComponent(location.latitude)}` +
+                    `&longitude=${encodeURIComponent(location.longitude)}` +
+                    "&current=temperature_2m,weather_code,is_day" +
+                    "&temperature_unit=fahrenheit" +
+                    "&timezone=auto";
+
+
+                const weatherResponse =
+                    await fetch(weatherURL);
+
+
+                if (!weatherResponse.ok) {
+                    throw new Error(
+                        "Weather request failed"
+                    );
+                }
+
+
+                const weather =
+                    await weatherResponse.json();
+
+
+                if (weather.current) {
+
+                    const temperature =
+                        Math.round(
+                            weather.current.temperature_2m
+                        );
+
+                    weatherElement.textContent =
+                        `${temperature}°F`;
+
+                    weatherDescriptionElement.textContent =
+                        getWeatherDescription(
+                            weather.current.weather_code
+                        );
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Location/weather error:",
+                    error
+                );
+
+                locationElement.textContent =
+                    "Location unavailable";
+
+                weatherElement.textContent =
+                    "--°";
+
+                weatherDescriptionElement.textContent =
+                    "Weather unavailable";
+            }
+
         }
-    }
 
-    animateTitle();
 
-</script>
-```
+        /*
+            Weather code descriptions
+            Based on WMO weather codes.
+        */
+
+        function getWeatherDescription(code) {
+
+            const descriptions = {
+
+                0: "Clear sky",
+
+                1: "Mainly clear",
+                2: "Partly cloudy",
+                3: "Overcast",
+
+                45: "Foggy",
+                48: "Foggy",
+
+                51: "Light drizzle",
+                53: "Drizzle",
+                55: "Heavy drizzle",
+
+                56: "Freezing drizzle",
+                57: "Freezing drizzle",
+
+                61: "Light rain",
+                63: "Rain",
+                65: "Heavy rain",
+
+                66: "Freezing rain",
+                67: "Heavy freezing rain",
+
+                71: "Light snow",
+                73: "Snow",
+                75: "Heavy snow",
+
+                77: "Snow grains",
+
+                80: "Light showers",
+                81: "Rain showers",
+                82: "Heavy showers",
+
+                85: "Snow showers",
+                86: "Heavy snow showers",
+
+                95: "Thunderstorm",
+                96: "Thunderstorm + hail",
+                99: "Thunderstorm + hail"
+            };
+
+            return descriptions[code] ||
+                "Weather unavailable";
+        }
+
+
+        /*
+            Start location/weather detection
+        */
+
+        loadLocationAndWeather();
+
+
+        /* =========================================
+           LIVE LOCAL CLOCK
+        ========================================= */
+
+        function updateClock() {
+
+            const now =
+                new Date();
+
+
+            const timeString =
+                new Intl.DateTimeFormat(
+                    "en-US",
+                    {
+                        timeZone:
+                            visitorTimezone,
+
+                        hour:
+                            "numeric",
+
+                        minute:
+                            "2-digit",
+
+                        second:
+                            "2-digit",
+
+                        hour12:
+                            true
+                    }
+                ).format(now);
+
+
+            timeElement.textContent =
+                timeString;
+        }
+
+
+        updateClock();
+
+        setInterval(
+            updateClock,
+            1000
+        );
+
+
+        /*
+            Refresh weather periodically
+        */
+
+        setInterval(
+            loadLocationAndWeather,
+            15 * 60 * 1000
+        );
+
+    </script>
 
 </body>
 </html>
