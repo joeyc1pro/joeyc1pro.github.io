@@ -22,6 +22,7 @@
     muted
     loop
     playsinline
+    aria-hidden="true"
 >
     <source src="bg.mp4" type="video/mp4">
 </video>
@@ -29,16 +30,18 @@
 <!-- Dark Overlay -->
 <div class="video-overlay"></div>
 
+
 <!-- Background Music -->
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+
 <!-- Main Profile -->
 <main class="profile">
 
     <!-- Avatar -->
-    <div class="avatar">
+    <div class="avatar" aria-hidden="true">
         <span>J</span>
     </div>
 
@@ -51,6 +54,7 @@
     <p class="bio">
         developer • gamer • creator
     </p>
+
 
     <!-- Social Links -->
     <div class="socials">
@@ -83,59 +87,12 @@
 
     </div>
 
-    <!-- Local Info -->
-    <div class="local-info">
-
-        <div class="info-box">
-
-            <div class="info-label">
-                LOCAL TIME
-            </div>
-
-            <div
-                class="info-value"
-                id="localTime"
-            >
-                --:--:--
-            </div>
-
-            <div
-                class="info-sub"
-                id="location"
-            >
-                Detecting location...
-            </div>
-
-        </div>
-
-        <div class="info-box">
-
-            <div class="info-label">
-                WEATHER
-            </div>
-
-            <div
-                class="info-value"
-                id="weather"
-            >
-                --°
-            </div>
-
-            <div
-                class="info-sub"
-                id="weatherDescription"
-            >
-                Loading...
-            </div>
-
-        </div>
-
-    </div>
 
     <!-- Projects -->
     <div class="projects-title">
         projects
     </div>
+
 
     <a
         href="https://joeyc1pro.github.io/amplify-home-xyz"
@@ -145,7 +102,10 @@
         aria-label="Visit Amplify, Joey's unblocked games website"
     >
 
-        <div class="project-icon">
+        <div
+            class="project-icon"
+            aria-hidden="true"
+        >
             🎮
         </div>
 
@@ -161,29 +121,84 @@
 
         </div>
 
-        <div class="project-arrow">
+        <div
+            class="project-arrow"
+            aria-hidden="true"
+        >
             ↗
         </div>
 
     </a>
+
 
     <!-- Music Button -->
     <button
         class="music-button"
         id="musicButton"
         type="button"
+        aria-label="Play background music"
+        aria-pressed="false"
     >
-        <span id="musicIcon">♫</span>
+        <span id="musicIcon" aria-hidden="true">♫</span>
         <span id="musicText">Play music</span>
     </button>
 
+
     <!-- Online Status -->
     <div class="online">
-        <span></span>
+        <span aria-hidden="true"></span>
         online
     </div>
 
+
+    <!-- Local Time + Weather -->
+    <div class="local-info">
+
+        <!-- Time -->
+        <div class="info-box">
+
+            <div
+                class="info-value"
+                id="localTime"
+                aria-live="polite"
+            >
+                --:--:--
+            </div>
+
+            <div
+                class="info-sub"
+                id="location"
+            >
+                Detecting location...
+            </div>
+
+        </div>
+
+
+        <!-- Weather -->
+        <div class="info-box">
+
+            <div
+                class="info-value"
+                id="weather"
+                aria-live="polite"
+            >
+                --°F
+            </div>
+
+            <div
+                class="info-sub"
+                id="weatherDescription"
+            >
+                Loading...
+            </div>
+
+        </div>
+
+    </div>
+
 </main>
+
 
 <script>
 
@@ -202,6 +217,7 @@
 
     const pauseAfterTyping = 1500;
     const pauseAfterDeleting = 400;
+
 
     function animateTitle() {
 
@@ -264,6 +280,7 @@
         }
     }
 
+
     animateTitle();
 
 
@@ -295,6 +312,7 @@
 
     music.volume = 0.35;
 
+
     musicButton.addEventListener(
         "click",
         () => {
@@ -310,6 +328,16 @@
 
                 musicText.textContent =
                     "Play music";
+
+                musicButton.setAttribute(
+                    "aria-label",
+                    "Play background music"
+                );
+
+                musicButton.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
 
                 musicButton.classList.remove(
                     "playing"
@@ -327,6 +355,16 @@
 
                         musicText.textContent =
                             "Pause music";
+
+                        musicButton.setAttribute(
+                            "aria-label",
+                            "Pause background music"
+                        );
+
+                        musicButton.setAttribute(
+                            "aria-pressed",
+                            "true"
+                        );
 
                         musicButton.classList.add(
                             "playing"
@@ -369,6 +407,7 @@
         document.getElementById(
             "weatherDescription"
         );
+
 
     let visitorTimezone =
         Intl.DateTimeFormat()
@@ -504,7 +543,7 @@
                 "Location unavailable";
 
             weatherElement.textContent =
-                "--°";
+                "--°F";
 
             weatherDescriptionElement
                 .textContent =
@@ -523,6 +562,7 @@
         const descriptions = {
 
             0: "Clear sky",
+
             1: "Mainly clear",
             2: "Partly cloudy",
             3: "Overcast",
