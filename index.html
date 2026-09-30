@@ -1,290 +1,303 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title></title>
-    <link rel="stylesheet" href="style.css">
+```
+<title></title>
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-    <!-- Video Background -->
-    <video
-        class="video-background"
-        autoplay
-        muted
-        loop
-        playsinline
-    >
-        <source src="bg.mp4" type="video/webm">
-    </video>
+```
+<!-- Video Background -->
+<video
+    class="video-background"
+    autoplay
+    muted
+    loop
+    playsinline
+>
+    <source src="bg.mp4" type="video/mp4">
+</video>
 
-    <!-- Dark overlay -->
-    <div class="video-overlay"></div>
+<!-- Dark Overlay -->
+<div class="video-overlay"></div>
 
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+<!-- Main Profile -->
+<main class="profile">
 
+    <!-- Avatar -->
+    <div class="avatar">
+        <span>J</span>
+    </div>
 
-    <!-- Main Profile -->
-    <main class="profile">
+    <h1>Joey</h1>
 
-        <!-- Avatar -->
-        <div class="avatar">
-            <span>J</span>
-        </div>
+    <div class="username">
+        @joeyc1pro
+    </div>
 
-        <h1>Joey</h1>
+    <p class="bio">
+        developer • gamer • creator
+    </p>
 
-        <div class="username">
-            @joeyc1pro
-        </div>
-
-        <p class="bio">
-            developer • gamer • creator
-        </p>
-
-
-        <!-- Social Links -->
-        <div class="socials">
-
-            <a href="#" class="social">
-                <span class="social-icon">◉</span>
-                <span>Discord</span>
-            </a>
-
-            <a
-                href="https://github.com/joeyc1pro"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social"
-            >
-                <span class="social-icon">⌘</span>
-                <span>GitHub</span>
-            </a>
-
-        </div>
-
-
-        <!-- Local Info -->
-        <div class="local-info">
-
-            <div class="info-box">
-
-                <div class="info-label">
-                    LOCAL TIME
-                </div>
-
-                <div
-                    class="info-value"
-                    id="localTime"
-                >
-                    --:--:--
-                </div>
-
-                <div
-                    class="info-sub"
-                    id="location"
-                >
-                    Detecting location...
-                </div>
-
-            </div>
-
-
-            <div class="info-box">
-
-                <div class="info-label">
-                    WEATHER
-                </div>
-
-                <div
-                    class="info-value"
-                    id="weather"
-                >
-                    --°
-                </div>
-
-                <div
-                    class="info-sub"
-                    id="weatherDescription"
-                >
-                    Loading...
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Projects -->
-        <div class="projects-title">
-            projects
-        </div>
-
+    <!-- Social Links -->
+    <div class="socials">
 
         <a
-            href="https://joeyc1pro.github.io/amplify-home-xyz"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project"
+            href="#"
+            class="social"
+            aria-label="Contact Joey on Discord"
         >
-
-            <div class="project-icon">
-                🎮
-            </div>
-
-            <div class="project-info">
-
-                <div class="project-name">
-                    Amplify
-                </div>
-
-                <div class="project-description">
-                    Unblocked games website
-                </div>
-
-            </div>
-
-            <div class="project-arrow">
-                ↗
-            </div>
-
+            <img
+                src="dc.png"
+                alt="Discord"
+                class="social-logo"
+            >
         </a>
 
-
-        <!-- Music Button -->
-        <button
-            class="music-button"
-            id="musicButton"
-            type="button"
+        <a
+            href="https://github.com/joeyc1pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social"
+            aria-label="Visit Joey's GitHub profile"
         >
-            <span id="musicIcon">♫</span>
-            <span id="musicText">Play music</span>
-        </button>
+            <img
+                src="gh.png"
+                alt="GitHub"
+                class="social-logo"
+            >
+        </a>
 
+    </div>
 
-        <!-- Online -->
-        <div class="online">
-            <span></span>
-            online
+    <!-- Local Info -->
+    <div class="local-info">
+
+        <div class="info-box">
+
+            <div class="info-label">
+                LOCAL TIME
+            </div>
+
+            <div
+                class="info-value"
+                id="localTime"
+            >
+                --:--:--
+            </div>
+
+            <div
+                class="info-sub"
+                id="location"
+            >
+                Detecting location...
+            </div>
+
         </div>
 
-    </main>
+        <div class="info-box">
 
+            <div class="info-label">
+                WEATHER
+            </div>
 
-    <script>
+            <div
+                class="info-value"
+                id="weather"
+            >
+                --°
+            </div>
 
-        /* =========================================
-           TAB TITLE TYPEWRITER
-        ========================================= */
+            <div
+                class="info-sub"
+                id="weatherDescription"
+            >
+                Loading...
+            </div>
 
-        const titles = [
-            "Joey",
-            "JoeyC1Pro",
-            "Joey's Website",
-            "joeyc1pro"
-        ];
+        </div>
 
-        let titleIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
+    </div>
 
-        const typeSpeed = 100;
-        const deleteSpeed = 55;
+    <!-- Projects -->
+    <div class="projects-title">
+        projects
+    </div>
 
-        const pauseAfterTyping = 1700;
-        const pauseAfterDeleting = 500;
+    <a
+        href="https://joeyc1pro.github.io/amplify-home-xyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project"
+        aria-label="Visit Amplify, Joey's unblocked games website"
+    >
 
+        <div class="project-icon">
+            🎮
+        </div>
 
-        function animateTitle() {
+        <div class="project-info">
 
-            const current = titles[titleIndex];
+            <div class="project-name">
+                Amplify
+            </div>
 
-            if (!deleting) {
+            <div class="project-description">
+                Unblocked games website
+            </div>
 
-                document.title =
-                    current.substring(0, charIndex + 1);
+        </div>
 
-                charIndex++;
+        <div class="project-arrow">
+            ↗
+        </div>
 
-                if (charIndex >= current.length) {
+    </a>
 
-                    setTimeout(() => {
+    <!-- Music Button -->
+    <button
+        class="music-button"
+        id="musicButton"
+        type="button"
+    >
+        <span id="musicIcon">♫</span>
+        <span id="musicText">Play music</span>
+    </button>
 
-                        deleting = true;
-                        animateTitle();
+    <!-- Online Status -->
+    <div class="online">
+        <span></span>
+        online
+    </div>
 
-                    }, pauseAfterTyping);
+</main>
 
-                    return;
-                }
+<script>
 
-                setTimeout(
-                    animateTitle,
-                    typeSpeed
+    /* =========================================
+       TAB TITLE TYPEWRITER
+       .joey.c1 → backspace → repeat
+    ========================================= */
+
+    const titleText = ".joey.c1";
+
+    let titleIndex = 0;
+    let deleting = false;
+
+    const typeSpeed = 120;
+    const deleteSpeed = 70;
+
+    const pauseAfterTyping = 1500;
+    const pauseAfterDeleting = 400;
+
+    function animateTitle() {
+
+        if (!deleting) {
+
+            titleIndex++;
+
+            document.title =
+                titleText.substring(
+                    0,
+                    titleIndex
                 );
 
-            } else {
+            if (
+                titleIndex >=
+                titleText.length
+            ) {
 
-                document.title =
-                    current.substring(0, charIndex - 1);
+                setTimeout(() => {
 
-                charIndex--;
+                    deleting = true;
+                    animateTitle();
 
-                if (charIndex <= 0) {
+                }, pauseAfterTyping);
 
-                    deleting = false;
-
-                    titleIndex =
-                        (titleIndex + 1) % titles.length;
-
-                    setTimeout(
-                        animateTitle,
-                        pauseAfterDeleting
-                    );
-
-                    return;
-                }
-
-                setTimeout(
-                    animateTitle,
-                    deleteSpeed
-                );
+                return;
             }
+
+            setTimeout(
+                animateTitle,
+                typeSpeed
+            );
+
+        } else {
+
+            titleIndex--;
+
+            document.title =
+                titleText.substring(
+                    0,
+                    titleIndex
+                );
+
+            if (titleIndex <= 0) {
+
+                deleting = false;
+
+                setTimeout(
+                    animateTitle,
+                    pauseAfterDeleting
+                );
+
+                return;
+            }
+
+            setTimeout(
+                animateTitle,
+                deleteSpeed
+            );
         }
+    }
 
-        animateTitle();
-
-
-        /* =========================================
-           BACKGROUND MUSIC
-        ========================================= */
-
-        const music =
-            document.getElementById("bgMusic");
-
-        const musicButton =
-            document.getElementById("musicButton");
-
-        const musicText =
-            document.getElementById("musicText");
-
-        const musicIcon =
-            document.getElementById("musicIcon");
-
-        let musicPlaying = false;
+    animateTitle();
 
 
-        music.volume = 0.35;
+    /* =========================================
+       BACKGROUND MUSIC
+    ========================================= */
 
+    const music =
+        document.getElementById(
+            "bgMusic"
+        );
 
-        musicButton.addEventListener("click", () => {
+    const musicButton =
+        document.getElementById(
+            "musicButton"
+        );
+
+    const musicText =
+        document.getElementById(
+            "musicText"
+        );
+
+    const musicIcon =
+        document.getElementById(
+            "musicIcon"
+        );
+
+    let musicPlaying = false;
+
+    music.volume = 0.35;
+
+    musicButton.addEventListener(
+        "click",
+        () => {
 
             if (musicPlaying) {
 
@@ -292,10 +305,15 @@
 
                 musicPlaying = false;
 
-                musicIcon.textContent = "♫";
-                musicText.textContent = "Play music";
+                musicIcon.textContent =
+                    "♫";
 
-                musicButton.classList.remove("playing");
+                musicText.textContent =
+                    "Play music";
+
+                musicButton.classList.remove(
+                    "playing"
+                );
 
             } else {
 
@@ -304,10 +322,15 @@
 
                         musicPlaying = true;
 
-                        musicIcon.textContent = "Ⅱ";
-                        musicText.textContent = "Pause music";
+                        musicIcon.textContent =
+                            "Ⅱ";
 
-                        musicButton.classList.add("playing");
+                        musicText.textContent =
+                            "Pause music";
+
+                        musicButton.classList.add(
+                            "playing"
+                        );
 
                     })
                     .catch(() => {
@@ -316,296 +339,290 @@
                             "Music unavailable";
 
                     });
-            }
 
-        });
-
-
-        /* =========================================
-           IP LOCATION + WEATHER
-        ========================================= */
-
-        const timeElement =
-            document.getElementById("localTime");
-
-        const locationElement =
-            document.getElementById("location");
-
-        const weatherElement =
-            document.getElementById("weather");
-
-        const weatherDescriptionElement =
-            document.getElementById(
-                "weatherDescription"
-            );
-
-
-        let visitorTimezone =
-            Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-
-        /*
-            Get approximate location from public IP.
-            ipapi.co returns city, latitude,
-            longitude and timezone.
-        */
-
-        async function loadLocationAndWeather() {
-
-            try {
-
-                const locationResponse =
-                    await fetch(
-                        "https://ipapi.co/json/"
-                    );
-
-                if (!locationResponse.ok) {
-                    throw new Error(
-                        "Location request failed"
-                    );
-                }
-
-                const location =
-                    await locationResponse.json();
-
-
-                /*
-                    Location
-                */
-
-                if (
-                    location.city &&
-                    location.region
-                ) {
-
-                    locationElement.textContent =
-                        `${location.city}, ${location.region}`;
-
-                } else if (location.city) {
-
-                    locationElement.textContent =
-                        location.city;
-
-                } else {
-
-                    locationElement.textContent =
-                        "Local time";
-
-                }
-
-
-                /*
-                    Timezone
-                */
-
-                if (location.timezone) {
-
-                    visitorTimezone =
-                        location.timezone;
-
-                }
-
-
-                /*
-                    Weather coordinates
-                */
-
-                if (
-                    typeof location.latitude !==
-                        "number" ||
-                    typeof location.longitude !==
-                        "number"
-                ) {
-
-                    throw new Error(
-                        "No coordinates available"
-                    );
-
-                }
-
-
-                /*
-                    Open-Meteo current weather
-                */
-
-                const weatherURL =
-                    "https://api.open-meteo.com/v1/forecast" +
-                    `?latitude=${encodeURIComponent(location.latitude)}` +
-                    `&longitude=${encodeURIComponent(location.longitude)}` +
-                    "&current=temperature_2m,weather_code,is_day" +
-                    "&temperature_unit=fahrenheit" +
-                    "&timezone=auto";
-
-
-                const weatherResponse =
-                    await fetch(weatherURL);
-
-
-                if (!weatherResponse.ok) {
-                    throw new Error(
-                        "Weather request failed"
-                    );
-                }
-
-
-                const weather =
-                    await weatherResponse.json();
-
-
-                if (weather.current) {
-
-                    const temperature =
-                        Math.round(
-                            weather.current.temperature_2m
-                        );
-
-                    weatherElement.textContent =
-                        `${temperature}°F`;
-
-                    weatherDescriptionElement.textContent =
-                        getWeatherDescription(
-                            weather.current.weather_code
-                        );
-                }
-
-
-            } catch (error) {
-
-                console.error(
-                    "Location/weather error:",
-                    error
-                );
-
-                locationElement.textContent =
-                    "Location unavailable";
-
-                weatherElement.textContent =
-                    "--°";
-
-                weatherDescriptionElement.textContent =
-                    "Weather unavailable";
             }
 
         }
+    );
 
 
-        /*
-            Weather code descriptions
-            Based on WMO weather codes.
-        */
+    /* =========================================
+       IP LOCATION + WEATHER
+    ========================================= */
 
-        function getWeatherDescription(code) {
+    const timeElement =
+        document.getElementById(
+            "localTime"
+        );
 
-            const descriptions = {
+    const locationElement =
+        document.getElementById(
+            "location"
+        );
 
-                0: "Clear sky",
+    const weatherElement =
+        document.getElementById(
+            "weather"
+        );
 
-                1: "Mainly clear",
-                2: "Partly cloudy",
-                3: "Overcast",
+    const weatherDescriptionElement =
+        document.getElementById(
+            "weatherDescription"
+        );
 
-                45: "Foggy",
-                48: "Foggy",
+    let visitorTimezone =
+        Intl.DateTimeFormat()
+            .resolvedOptions()
+            .timeZone;
 
-                51: "Light drizzle",
-                53: "Drizzle",
-                55: "Heavy drizzle",
 
-                56: "Freezing drizzle",
-                57: "Freezing drizzle",
+    async function loadLocationAndWeather() {
 
-                61: "Light rain",
-                63: "Rain",
-                65: "Heavy rain",
+        try {
 
-                66: "Freezing rain",
-                67: "Heavy freezing rain",
+            const locationResponse =
+                await fetch(
+                    "https://ipapi.co/json/"
+                );
 
-                71: "Light snow",
-                73: "Snow",
-                75: "Heavy snow",
+            if (!locationResponse.ok) {
+                throw new Error(
+                    "Location request failed"
+                );
+            }
 
-                77: "Snow grains",
+            const location =
+                await locationResponse.json();
 
-                80: "Light showers",
-                81: "Rain showers",
-                82: "Heavy showers",
 
-                85: "Snow showers",
-                86: "Heavy snow showers",
+            /* Location */
 
-                95: "Thunderstorm",
-                96: "Thunderstorm + hail",
-                99: "Thunderstorm + hail"
-            };
+            if (
+                location.city &&
+                location.region
+            ) {
 
-            return descriptions[code] ||
+                locationElement.textContent =
+                    `${location.city}, ${location.region}`;
+
+            } else if (location.city) {
+
+                locationElement.textContent =
+                    location.city;
+
+            } else {
+
+                locationElement.textContent =
+                    "Local time";
+            }
+
+
+            /* Timezone */
+
+            if (location.timezone) {
+
+                visitorTimezone =
+                    location.timezone;
+            }
+
+
+            /* Coordinates */
+
+            if (
+                typeof location.latitude !==
+                    "number" ||
+                typeof location.longitude !==
+                    "number"
+            ) {
+
+                throw new Error(
+                    "No coordinates available"
+                );
+            }
+
+
+            /* Weather */
+
+            const weatherURL =
+                "https://api.open-meteo.com/v1/forecast" +
+                `?latitude=${encodeURIComponent(
+                    location.latitude
+                )}` +
+                `&longitude=${encodeURIComponent(
+                    location.longitude
+                )}` +
+                "&current=temperature_2m,weather_code,is_day" +
+                "&temperature_unit=fahrenheit" +
+                "&timezone=auto";
+
+
+            const weatherResponse =
+                await fetch(
+                    weatherURL
+                );
+
+
+            if (!weatherResponse.ok) {
+                throw new Error(
+                    "Weather request failed"
+                );
+            }
+
+
+            const weather =
+                await weatherResponse.json();
+
+
+            if (weather.current) {
+
+                const temperature =
+                    Math.round(
+                        weather.current
+                            .temperature_2m
+                    );
+
+                weatherElement.textContent =
+                    `${temperature}°F`;
+
+                weatherDescriptionElement
+                    .textContent =
+                    getWeatherDescription(
+                        weather.current
+                            .weather_code
+                    );
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "Location/weather error:",
+                error
+            );
+
+            locationElement.textContent =
+                "Location unavailable";
+
+            weatherElement.textContent =
+                "--°";
+
+            weatherDescriptionElement
+                .textContent =
                 "Weather unavailable";
         }
 
-
-        /*
-            Start location/weather detection
-        */
-
-        loadLocationAndWeather();
+    }
 
 
-        /* =========================================
-           LIVE LOCAL CLOCK
-        ========================================= */
+    /* =========================================
+       WEATHER DESCRIPTIONS
+    ========================================= */
 
-        function updateClock() {
+    function getWeatherDescription(code) {
 
-            const now =
-                new Date();
+        const descriptions = {
+
+            0: "Clear sky",
+            1: "Mainly clear",
+            2: "Partly cloudy",
+            3: "Overcast",
+
+            45: "Foggy",
+            48: "Foggy",
+
+            51: "Light drizzle",
+            53: "Drizzle",
+            55: "Heavy drizzle",
+
+            56: "Freezing drizzle",
+            57: "Freezing drizzle",
+
+            61: "Light rain",
+            63: "Rain",
+            65: "Heavy rain",
+
+            66: "Freezing rain",
+            67: "Heavy freezing rain",
+
+            71: "Light snow",
+            73: "Snow",
+            75: "Heavy snow",
+
+            77: "Snow grains",
+
+            80: "Light showers",
+            81: "Rain showers",
+            82: "Heavy showers",
+
+            85: "Snow showers",
+            86: "Heavy snow showers",
+
+            95: "Thunderstorm",
+            96: "Thunderstorm + hail",
+            99: "Thunderstorm + hail"
+        };
+
+        return descriptions[code] ||
+            "Weather unavailable";
+    }
 
 
-            const timeString =
-                new Intl.DateTimeFormat(
-                    "en-US",
-                    {
-                        timeZone:
-                            visitorTimezone,
-
-                        hour:
-                            "numeric",
-
-                        minute:
-                            "2-digit",
-
-                        second:
-                            "2-digit",
-
-                        hour12:
-                            true
-                    }
-                ).format(now);
+    loadLocationAndWeather();
 
 
-            timeElement.textContent =
-                timeString;
-        }
+    /* =========================================
+       LIVE LOCAL CLOCK
+    ========================================= */
+
+    function updateClock() {
+
+        const now =
+            new Date();
+
+        const timeString =
+            new Intl.DateTimeFormat(
+                "en-US",
+                {
+                    timeZone:
+                        visitorTimezone,
+
+                    hour:
+                        "numeric",
+
+                    minute:
+                        "2-digit",
+
+                    second:
+                        "2-digit",
+
+                    hour12:
+                        true
+                }
+            ).format(now);
 
 
-        updateClock();
-
-        setInterval(
-            updateClock,
-            1000
-        );
+        timeElement.textContent =
+            timeString;
+    }
 
 
-        /*
-            Refresh weather periodically
-        */
+    updateClock();
 
-        setInterval(
-            loadLocationAndWeather,
-            15 * 60 * 1000
-        );
+    setInterval(
+        updateClock,
+        1000
+    );
 
-    </script>
+
+    /* Refresh weather every 15 minutes */
+
+    setInterval(
+        loadLocationAndWeather,
+        15 * 60 * 1000
+    );
+
+</script>
+```
 
 </body>
 </html>
