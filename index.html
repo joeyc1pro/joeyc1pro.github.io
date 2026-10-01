@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -61,10 +62,13 @@
         <!-- Social Links -->
         <div class="socials">
 
+            <!-- Discord -->
             <a
                 href="https://discord.com/users/968163467943112755"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="social"
-                aria-label="Contact Joey on Discord"
+                aria-label="Open Joey's Discord profile"
             >
                 <img
                     src="dc.png"
@@ -73,6 +77,7 @@
                 >
             </a>
 
+            <!-- GitHub -->
             <a
                 href="https://github.com/joeyc1pro"
                 target="_blank"
@@ -271,24 +276,16 @@
         ========================= */
 
         const music =
-            document.getElementById(
-                "bgMusic"
-            );
+            document.getElementById("bgMusic");
 
         const musicButton =
-            document.getElementById(
-                "musicButton"
-            );
+            document.getElementById("musicButton");
 
         const musicText =
-            document.getElementById(
-                "musicText"
-            );
+            document.getElementById("musicText");
 
         const musicIcon =
-            document.getElementById(
-                "musicIcon"
-            );
+            document.getElementById("musicIcon");
 
         let musicPlaying = false;
 
@@ -367,19 +364,13 @@
         ========================= */
 
         const timeElement =
-            document.getElementById(
-                "localTime"
-            );
+            document.getElementById("localTime");
 
         const locationElement =
-            document.getElementById(
-                "location"
-            );
+            document.getElementById("location");
 
         const weatherElement =
-            document.getElementById(
-                "weather"
-            );
+            document.getElementById("weather");
 
         const weatherDescriptionElement =
             document.getElementById(
@@ -397,59 +388,32 @@
             const descriptions = {
 
                 0: "Clear sky",
-
                 1: "Mainly clear",
-
                 2: "Partly cloudy",
-
                 3: "Overcast",
-
                 45: "Foggy",
-
                 48: "Foggy",
-
                 51: "Light drizzle",
-
                 53: "Drizzle",
-
                 55: "Heavy drizzle",
-
                 56: "Freezing drizzle",
-
                 57: "Freezing drizzle",
-
                 61: "Light rain",
-
                 63: "Rain",
-
                 65: "Heavy rain",
-
                 66: "Freezing rain",
-
                 67: "Heavy freezing rain",
-
                 71: "Light snow",
-
                 73: "Snow",
-
                 75: "Heavy snow",
-
                 77: "Snow grains",
-
                 80: "Light showers",
-
                 81: "Rain showers",
-
                 82: "Heavy showers",
-
                 85: "Snow showers",
-
                 86: "Heavy snow showers",
-
                 95: "Thunderstorm",
-
                 96: "Thunderstorm + hail",
-
                 99: "Thunderstorm + hail"
 
             };
@@ -471,6 +435,7 @@
                     );
 
                 if (!locationResponse.ok) {
+
                     throw new Error(
                         "Location request failed"
                     );
@@ -560,10 +525,8 @@
                                 .temperature_2m
                         );
 
-
                     weatherElement.textContent =
                         `${temperature}°F`;
-
 
                     weatherDescriptionElement
                         .textContent =
@@ -605,7 +568,6 @@
             const now =
                 new Date();
 
-
             const timeString =
                 new Intl.DateTimeFormat(
                     "en-US",
@@ -626,7 +588,6 @@
                             true
                     }
                 ).format(now);
-
 
             timeElement.textContent =
                 timeString;
